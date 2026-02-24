@@ -3,7 +3,7 @@
 # Import from dependencies
 importFrom(FLCore, FLStock, FLIndex, FLQuant, indicators.len)
 importFrom(FLRebuild, jabba)
-importFrom(FLSkill, roc)
+importFrom(FLSkill, roc2)
 importFrom(icesdata, getDATRAS, readDATRAS)
 
 # Export IMBUS-specific functions
@@ -41,11 +41,13 @@ export(
     cumdensdata,
     
     # Workflow functions
-    imbus_workflow
+    imbus_workflow,
+    
+    # ROC wrapper function
+    roc
 )
 
 # Re-export functions from dependencies (imported above, now exported)
-export(roc)
 export(indicators.len)
 export(jabba)
 export(FLStock, FLIndex, FLQuant)
