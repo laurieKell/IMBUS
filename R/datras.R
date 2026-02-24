@@ -14,7 +14,7 @@
 #' @examples
 #' \dontrun{
 #' # Download haul data for North Sea IBTS Q1 1988
-#' df_datras <- get_datras_table(
+#' dfDatras = get_datras_table(
 #'   recordtype = "HH",
 #'   survey = "NS-IBTS",
 #'   year = "1988",
@@ -23,38 +23,38 @@
 #' }
 get_datras_table <- function(recordtype, survey, year, quarter) {
   
-  base_url <- "Https://datras.ices.dk/Data_products/Download/GetDATRAS.aspx"
-  full_url <- paste0(
-    base_url,
+  baseUrl = "Https://datras.ices.dk/Data_products/Download/GetDATRAS.aspx"
+  fullUrl = paste0(
+    baseUrl,
     "?recordtype=", recordtype,
     "&survey=", survey,
     "&year=", year,
     "&quarter=", quarter
   )
   
-  temp_zip <- tempfile(fileext = ".zip")
-  temp_dir <- tempdir()
+  tempZip = tempfile(fileext = ".zip")
+  tempDir = tempdir()
   
-  message("Downloading from: ", full_url)
-  download.file(full_url, destfile = temp_zip, mode = "wb", quiet = TRUE)
+  message("Downloading from: ", fullUrl)
+  download.file(fullUrl, destfile = tempZip, mode = "wb", quiet = TRUE)
   
   # ---- Unzip ----
   message("Unzipping...")
-  unzip(temp_zip, exdir = temp_dir)
+  unzip(tempZip, exdir = tempDir)
   
   # Find CSV file
-  csv_file <- list.files(temp_dir, pattern = "Table\\.csv$", full.names = TRUE)
+  csvFile = list.files(tempDir, pattern = "Table\\.csv$", full.names = TRUE)
   
-  if (length(csv_file) == 0) {
+  if (length(csvFile) == 0) {
     stop("No table.csv found inside the ZIP file.")
   }
   
   # ---- Read CSV ----
   message("Reading table.csv into dataframe...")
-  df <- read.csv(csv_file[1], stringsAsFactors = FALSE)
+  df = read.csv(csvFile[1], stringsAsFactors = FALSE)
   
   # ---- Clean up ----
-  unlink(temp_zip)
+  unlink(tempZip)
   
   message("Done! Returning dataframe.")
   return(df)

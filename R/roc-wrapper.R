@@ -12,7 +12,7 @@
 #' @examples
 #' \dontrun{
 #' # Use roc function (wraps FLSkill::roc2)
-#' roc_result <- roc(indicator, reference_status)
+#' rocResult = roc(indicator, referenceStatus)
 #' }
 #'
 #' @seealso \code{\link[FLSkill]{roc2}}

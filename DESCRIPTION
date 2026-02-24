@@ -16,7 +16,11 @@ Imports:
     FLCore (>= 2.6.0),
     FLRebuild (>= 0.1.0),
     FLSkill (>= 0.1.0),
-    icesdata (>= 0.1.0)
+    icesdata (>= 0.1.0),
+    methods,
+    stats,
+    utils,
+    zoo
 Suggests:
     knitr,
     rmarkdown,
