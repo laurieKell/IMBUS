@@ -14,14 +14,16 @@ export(
     # ROC wrapper function
     roc,
     
-    # IMBUSData class and constructors
-    IMBUSData,
+    # IMBUSData constructor
     imbusData,
     
     # F and effort proxy methods
     calcFeff,
     calcFproxies
 )
+
+# Export S4 classes
+exportClass(IMBUSData)
 
 # Re-export functions from dependencies (imported above, now exported)
 export(indicators.len)
