@@ -10,7 +10,7 @@ The IMBUS package consolidates and extends useful functions from multiple R pack
 
 ```r
 # Install from GitHub (when available)
-devtools::install_github("flr/IMBUS")
+devtools::install_github("lauriekell/IMBUS")
 
 # Or install from local source
 devtools::install("path/to/IMBUS")

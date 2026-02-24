@@ -20,5 +20,5 @@ Suggests:
     knitr,
     rmarkdown,
     testthat
-URL: https://github.com/flr/IMBUS
-BugReports: https://github.com/flr/IMBUS/issues
+URL: https://github.com/lauriekell/IMBUS
+BugReports: https://github.com/lauriekell/IMBUS/issues
