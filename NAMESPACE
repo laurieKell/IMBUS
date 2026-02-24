@@ -10,38 +10,6 @@ export(
     # DATRAS functions
     get_datras_table,
     
-    # Survey index functions
-    calc_survey_index,
-    standardise_survey_index,
-    
-    # Length-based indicator functions
-    calc_lbi,
-    calc_length_indicators,
-    
-    # Auxiliary data functions
-    extract_auxiliary_data,
-    format_for_assessment,
-    
-    # Validation functions
-    validate_indicator,
-    diagnostic_plots,
-    
-    # Spatial indicator functions
-    calc_spatial_indicators,
-    spreadingarea,
-    gini,
-    positivearea,
-    proppres,
-    equivalentarea,
-    densitylevel,
-    spi,
-    extentofoccurrence,
-    cumdenscurve,
-    cumdensdata,
-    
-    # Workflow functions
-    imbus_workflow,
-    
     # ROC wrapper function
     roc
 )
