@@ -4,7 +4,6 @@
 importFrom(FLCore, FLStock, FLIndex, FLQuant, indicators.len)
 importFrom(FLRebuild, jabba)
 importFrom(FLSkill, roc2)
-importFrom(icesdata, getDATRAS, readDATRAS)
 
 # Export IMBUS-specific functions
 export(
