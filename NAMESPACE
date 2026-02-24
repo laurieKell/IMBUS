@@ -1,0 +1,44 @@
+# IMBUS Package Namespace
+
+# Import from dependencies
+importFrom(FLCore, FLStock, FLIndex, FLQuant)
+importFrom(FLRebuild, roc, indicators.len, jabba)
+importFrom(icesdata, getDATRAS, readDATRAS)
+importFrom(spatind, spreadingarea, gini, positivearea, proppres, 
+           equivalentarea, densitylevel, spi, extentofoccurrence,
+           cumdenscurve, cumdensdata)
+
+# Export IMBUS-specific functions
+export(
+    # DATRAS functions
+    get_datras_table,
+    
+    # Survey index functions
+    calc_survey_index,
+    standardise_survey_index,
+    
+    # Length-based indicator functions
+    calc_lbi,
+    calc_length_indicators,
+    
+    # Auxiliary data functions
+    extract_auxiliary_data,
+    format_for_assessment,
+    
+    # Validation functions
+    validate_indicator,
+    diagnostic_plots,
+    
+    # Spatial indicator functions
+    calc_spatial_indicators,
+    
+    # Workflow functions
+    imbus_workflow
+)
+
+# Re-export useful functions from dependencies
+exportFrom(FLRebuild, roc, indicators.len, jabba)
+exportFrom(FLCore, FLStock, FLIndex, FLQuant)
+exportFrom(spatind, spreadingarea, gini, positivearea, proppres,
+           equivalentarea, densitylevel, spi, extentofoccurrence,
+           cumdenscurve, cumdensdata)
