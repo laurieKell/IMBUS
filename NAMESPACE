@@ -43,6 +43,6 @@ export(
     imbus_workflow
 )
 
-# Re-export useful functions from dependencies
-exportFrom(FLRebuild, roc, indicators.len, jabba)
-exportFrom(FLCore, FLStock, FLIndex, FLQuant)
+# Re-export functions from dependencies (imported above, now exported)
+export(roc, indicators.len, jabba)
+export(FLStock, FLIndex, FLQuant)
