@@ -5,11 +5,10 @@ Version: 0.1.0
 Authors@R: 
     person("IMBUS", "Project", email = "imbus@ices.dk", role = c("aut", "cre"))
 Description: Consolidates and extends useful functions from FLRebuild, FLCore, 
-    and icesdata for IMBUS T4.4: Assessment of Survey-based Indices. Includes 
-    spatial indicator functions (spreadingarea, gini, positivearea, proppres, 
-    equivalentarea, densitylevel, spi, extentofoccurrence). Provides 
-    standardized workflows for survey index calculation, length-based indicators, 
-    auxiliary data extraction, and validation tools.
+    FLSkill, and icesdata for IMBUS T4.4: Assessment of Survey-based Indices. 
+    Provides DATRAS data access, F and effort proxy calculations via S4 methods, 
+    and ROC analysis tools. Includes IMBUSData S4 class for managing survey data 
+    and calculating fishing mortality proxies (Feff, Fgear, Fdist, Frealised).
 License: GPL-3
 Depends: R (>= 4.0.0)
 Imports:

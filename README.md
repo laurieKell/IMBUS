@@ -4,12 +4,12 @@
 
 ## Overview
 
-The IMBUS package consolidates and extends useful functions from multiple R packages for IMBUS T4.4: Assessment of Survey-based Indices. It provides standardized workflows for survey index calculation, length-based indicators, auxiliary data extraction, and validation tools.
+The IMBUS package consolidates and extends useful functions from multiple R packages for IMBUS T4.4: Assessment of Survey-based Indices. It provides standardized workflows for DATRAS data access, F and effort proxy calculations, and validation tools.
 
 ## Installation
 
 ```r
-# Install from GitHub (when available)
+# Install from GitHub
 devtools::install_github("laurieKell/IMBUS")
 
 # Or install from local source
@@ -22,58 +22,73 @@ This package consolidates functions from:
 
 - **FLCore**: Core data classes (FLStock, FLIndex, FLQuant), `indicators.len`, and operations
 - **FLRebuild**: `jabba` functions
-- **FLSkill**: ROC functions
+- **FLSkill**: ROC functions (via `roc()` wrapper)
 - **icesdata**: DATRAS data access and ICES database integration
-- **Spatial indicators**: Integrated spatial indicator functions (spreadingarea, gini, positivearea, proppres, equivalentarea, densitylevel, spi, extentofoccurrence)
 
-## Key Functions
-
-### Survey Indices
-- `calc_survey_index()` - Calculate standardized survey index
-- `standardise_survey_index()` - Apply standardisation procedures
-
-### Length-based Indicators
-- `calc_lbi()` - Calculate length-based indicators
-- `calc_length_indicators()` - Comprehensive length indicator calculation
-
-### Auxiliary Data
-- `extract_auxiliary_data()` - Extract auxiliary data from surveys
-- `format_for_assessment()` - Format data for assessment models
-
-### Validation
-- `validate_indicator()` - Validate indicators using ROC analysis
-- `diagnostic_plots()` - Generate diagnostic plots
-
-### Spatial Indicators
-- `calc_spatial_indicators()` - Calculate spatial indicators from survey data
-- `spreadingarea()`, `gini()`, `positivearea()`, `proppres()`, `equivalentarea()`, `densitylevel()`, `spi()`, `extentofoccurrence()` - Individual spatial indicator functions
-- `cumdenscurve()`, `cumdensdata()` - Cumulative density functions
-
-### Workflows
-- `imbus_workflow()` - Complete workflow for indicator calculation
+## Currently Implemented Functions
 
 ### Data Access
-- `get_datras_table()` - Download DATRAS data from ICES
+- `get_datras_table()` - Download DATRAS data from ICES database
 
-## Usage Example
+### Validation
+- `roc()` - ROC (Receiver Operating Characteristic) analysis wrapper for FLSkill::roc2
+
+### F and Effort Proxies
+- `IMBUSData` - S4 class for holding survey data (effort, spatial, species, gear efficiency)
+- `imbusData()` - Constructor function for IMBUSData objects
+- `calcFeff()` - Calculate effort-based fishing mortality (Feff = SweptArea / Area)
+- `calcFproxies()` - Calculate multiple F proxies:
+  - **Feff**: Effort-based F = SweptArea / Area
+  - **Fgear**: Gear-corrected F = Feff × GearEfficiency
+  - **Fdist**: Distribution-weighted F = Feff × RelativeAbundance
+  - **Frealised**: Realised F = Fdist × GearEfficiency
+
+## Usage Examples
+
+### Download DATRAS Data
 
 ```r
 library(IMBUS)
 
-# Download DATRAS data
-data <- get_datras_table("HL", "NS-IBTS", "2020", "1")
+# Download haul data for North Sea IBTS Q1 1988
+dfDatras = get_datras_table(
+  recordtype = "HH",
+  survey = "NS-IBTS",
+  year = "1988",
+  quarter = "1"
+)
+```
 
-# Calculate length-based indicators
-lbi <- calc_lbi(data, indicators = c("lmean", "lbar", "l95"))
+### Calculate F Proxies
 
-# Calculate survey index
-index <- calc_survey_index(data, method = "stratified", area_weight = TRUE)
+```r
+library(IMBUS)
 
-# Extract auxiliary data
-aux_data <- extract_auxiliary_data(data, data_type = "F_index")
+# Create IMBUSData object
+data = imbusData(
+  effort = effortDf,      # Swept area by gear/spatial/time
+  spatial = spatialDf,    # Spatial units with areas
+  species = speciesDf,     # Optional: species distribution
+  gear_efficiency = gearEffDf  # Optional: gear efficiency
+)
 
-# Validate indicator
-validation <- validate_indicator(lbi$lmean, reference_status, method = "roc")
+# Calculate basic Feff
+feff = calcFeff(data, fished = TRUE, agg_effort = TRUE)
+
+# Calculate all available F proxies
+fProxies = calcFproxies(data, 
+                        proxies = c("Feff", "Fgear", "Fdist", "Frealised"),
+                        fished = TRUE,
+                        agg_effort = TRUE)
+```
+
+### ROC Analysis
+
+```r
+library(IMBUS)
+
+# Use ROC function (wraps FLSkill::roc2)
+rocResult = roc(indicator, referenceStatus)
 ```
 
 ## Integration with IMBUS Tasks
@@ -83,9 +98,22 @@ validation <- validate_indicator(lbi$lmean, reference_status, method = "roc")
 - **T4.3**: Uses growth parameters for priors
 - **T4.5**: Provides data for Shiny app visualization
 
+## Re-exported Functions
+
+The package re-exports useful functions from dependencies:
+
+- **FLCore**: `FLStock`, `FLIndex`, `FLQuant`, `indicators.len`
+- **FLRebuild**: `jabba`
+
 ## Documentation
 
-See package vignettes for detailed examples and workflows.
+See package help files for detailed function documentation:
+- `?get_datras_table`
+- `?roc`
+- `?IMBUSData`
+- `?imbusData`
+- `?calcFeff`
+- `?calcFproxies`
 
 ## License
 
@@ -93,4 +121,6 @@ GPL-3
 
 ## Contact
 
-IMBUS Project Team
+IMBUS Project Team  
+Email: imbus@ices.dk  
+GitHub: https://github.com/laurieKell/IMBUS
