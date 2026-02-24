@@ -14,7 +14,7 @@
 #' \dontrun{
 #' data <- get_datras_table("HL", "NS-IBTS", "2020", "1")
 #' aux_data <- extract_auxiliary_data(data, data_type = "F_index")
-#' }
+#' }   
 extract_auxiliary_data <- function(datras_data, data_type = "F_index", ...) {
   
   # Placeholder - to be implemented
