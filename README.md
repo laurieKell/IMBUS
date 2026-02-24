@@ -20,9 +20,9 @@ devtools::install("path/to/IMBUS")
 
 This package consolidates functions from:
 
-- **FLRebuild**: `indicators.len`, `jabba` functions
+- **FLCore**: Core data classes (FLStock, FLIndex, FLQuant), `indicators.len`, and operations
+- **FLRebuild**: `jabba` functions
 - **FLSkill**: ROC functions
-- **FLCore**: Core data classes (FLStock, FLIndex, FLQuant) and operations
 - **icesdata**: DATRAS data access and ICES database integration
 - **Spatial indicators**: Integrated spatial indicator functions (spreadingarea, gini, positivearea, proppres, equivalentarea, densitylevel, spi, extentofoccurrence)
 

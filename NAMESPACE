@@ -46,5 +46,6 @@ export(
 
 # Re-export functions from dependencies (imported above, now exported)
 export(roc)
-export(indicators.len, jabba)
+export(indicators.len)
+export(jabba)
 export(FLStock, FLIndex, FLQuant)
