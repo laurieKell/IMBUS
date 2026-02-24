@@ -5,17 +5,17 @@ Version: 0.1.0
 Authors@R: 
     person("IMBUS", "Project", email = "imbus@ices.dk", role = c("aut", "cre"))
 Description: Consolidates and extends useful functions from FLRebuild, FLCore, 
-    icesdata, and spatial indicator packages for IMBUS T4.4: Assessment of 
-    Survey-based Indices. Provides standardized workflows for survey index 
-    calculation, length-based indicators, auxiliary data extraction, and 
-    validation tools.
+    and icesdata for IMBUS T4.4: Assessment of Survey-based Indices. Includes 
+    spatial indicator functions (spreadingarea, gini, positivearea, proppres, 
+    equivalentarea, densitylevel, spi, extentofoccurrence). Provides 
+    standardized workflows for survey index calculation, length-based indicators, 
+    auxiliary data extraction, and validation tools.
 License: GPL-3
 Depends: R (>= 4.0.0)
 Imports:
     FLCore (>= 2.6.0),
     FLRebuild (>= 0.1.0),
-    icesdata (>= 0.1.0),
-    spatind (>= 0.0.0.9000)
+    icesdata (>= 0.1.0)
 Suggests:
     knitr,
     rmarkdown,

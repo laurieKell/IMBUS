@@ -30,8 +30,9 @@
 #'   \item FLRebuild: ROC functions, indicators.len, jabba functions
 #'   \item FLCore: Core data classes and operations
 #'   \item icesdata: DATRAS data access
-#'   \item spatind: Spatial indicator functions (spreadingarea, gini, positivearea, 
-#'     proppres, equivalentarea, densitylevel, spi, extentofoccurrence)
+#'   \item Spatial indicators: Integrated spatial indicator functions 
+#'     (spreadingarea, gini, positivearea, proppres, equivalentarea, 
+#'     densitylevel, spi, extentofoccurrence)
 #' }
 #'
 #' @docType package

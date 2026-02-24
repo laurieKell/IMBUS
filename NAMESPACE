@@ -4,9 +4,6 @@
 importFrom(FLCore, FLStock, FLIndex, FLQuant)
 importFrom(FLRebuild, roc, indicators.len, jabba)
 importFrom(icesdata, getDATRAS, readDATRAS)
-importFrom(spatind, spreadingarea, gini, positivearea, proppres, 
-           equivalentarea, densitylevel, spi, extentofoccurrence,
-           cumdenscurve, cumdensdata)
 
 # Export IMBUS-specific functions
 export(
@@ -31,6 +28,16 @@ export(
     
     # Spatial indicator functions
     calc_spatial_indicators,
+    spreadingarea,
+    gini,
+    positivearea,
+    proppres,
+    equivalentarea,
+    densitylevel,
+    spi,
+    extentofoccurrence,
+    cumdenscurve,
+    cumdensdata,
     
     # Workflow functions
     imbus_workflow
@@ -39,6 +46,3 @@ export(
 # Re-export useful functions from dependencies
 exportFrom(FLRebuild, roc, indicators.len, jabba)
 exportFrom(FLCore, FLStock, FLIndex, FLQuant)
-exportFrom(spatind, spreadingarea, gini, positivearea, proppres,
-           equivalentarea, densitylevel, spi, extentofoccurrence,
-           cumdenscurve, cumdensdata)

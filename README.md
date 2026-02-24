@@ -23,7 +23,7 @@ This package consolidates functions from:
 - **FLRebuild**: ROC functions, `indicators.len`, `jabba` functions
 - **FLCore**: Core data classes (FLStock, FLIndex, FLQuant) and operations
 - **icesdata**: DATRAS data access and ICES database integration
-- **spatind**: Spatial indicator functions (spreadingarea, gini, positivearea, proppres, equivalentarea, densitylevel, spi, extentofoccurrence)
+- **Spatial indicators**: Integrated spatial indicator functions (spreadingarea, gini, positivearea, proppres, equivalentarea, densitylevel, spi, extentofoccurrence)
 
 ## Key Functions
 
@@ -45,7 +45,8 @@ This package consolidates functions from:
 
 ### Spatial Indicators
 - `calc_spatial_indicators()` - Calculate spatial indicators from survey data
-- Re-exports from spatind: `spreadingarea()`, `gini()`, `positivearea()`, `proppres()`, `equivalentarea()`, `densitylevel()`, `spi()`, `extentofoccurrence()`
+- `spreadingarea()`, `gini()`, `positivearea()`, `proppres()`, `equivalentarea()`, `densitylevel()`, `spi()`, `extentofoccurrence()` - Individual spatial indicator functions
+- `cumdenscurve()`, `cumdensdata()` - Cumulative density functions
 
 ### Workflows
 - `imbus_workflow()` - Complete workflow for indicator calculation
