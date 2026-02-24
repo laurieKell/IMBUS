@@ -1,8 +1,8 @@
 # IMBUS Package Namespace
 
 # Import from dependencies
-importFrom(FLCore, FLStock, FLIndex, FLQuant)
-importFrom(FLRebuild, indicators.len, jabba)
+importFrom(FLCore, FLStock, FLIndex, FLQuant, indicators.len)
+importFrom(FLRebuild, jabba)
 importFrom(FLSkill, roc)
 importFrom(icesdata, getDATRAS, readDATRAS)
 
