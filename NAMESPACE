@@ -2,7 +2,8 @@
 
 # Import from dependencies
 importFrom(FLCore, FLStock, FLIndex, FLQuant)
-importFrom(FLRebuild, roc, indicators.len, jabba)
+importFrom(FLRebuild, indicators.len, jabba)
+importFrom(FLSkill, roc)
 importFrom(icesdata, getDATRAS, readDATRAS)
 
 # Export IMBUS-specific functions
@@ -44,5 +45,6 @@ export(
 )
 
 # Re-export functions from dependencies (imported above, now exported)
-export(roc, indicators.len, jabba)
+export(roc)
+export(indicators.len, jabba)
 export(FLStock, FLIndex, FLQuant)
